@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Coffee Bean | Specialty Coffee &amp; Online Ordering</title>
+    <meta
+      name="description"
+      content="The Coffee Bean: small-batch specialty coffee, fresh pastries and desserts. Order online for delivery or pickup."
+    />
+    <meta name="theme-color" content="#2e1d14" />
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Logo symbol (light crema bean in a caramel ring), reused with <use> -->
+    <svg
+      width="0"
+      height="0"
+      style="position: absolute"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <symbol id="logo" viewBox="0 0 64 64">
+        <circle
+          cx="32"
+          cy="32"
+          r="30"
+          fill="none"
+          stroke="#f0b866"
+          stroke-width="2.2"
+        />
+        <circle
+          cx="32"
+          cy="32"
+          r="26.2"
+          fill="none"
+          stroke="#f0b866"
+          stroke-width=".8"
+          stroke-dasharray="1.5 3.2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M25 24 C21.5 20 28.5 17.5 25 12.5 M31 24 C27.5 19.5 34.5 17 31 11 M37 24 C33.5 20 40.5 17.5 37 12.5"
+          fill="none"
+          stroke="#f0b866"
+          stroke-width="2.2"
+          stroke-linecap="round"
+        />
+        <path
+          d="M44 32 H48.2 C52.6 32 52.6 42 47.6 42 H43.4"
+          fill="none"
+          stroke="#fbf1de"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M18 28.5 H44 V38 C44 45.6 38.4 50 31 50 C23.6 50 18 45.6 18 38 Z"
+          fill="#fbf1de"
+        />
+        <ellipse cx="31" cy="52.6" rx="15.5" ry="2.3" fill="#f0b866" />
+        <ellipse
+          cx="31"
+          cy="38.6"
+          rx="4.4"
+          ry="6.6"
+          transform="rotate(22 31 38.6)"
+          fill="#2e1d14"
+        />
+        <path
+          d="M28.6 44.2 C31.2 41 30.8 36.4 33.4 32.9"
+          fill="none"
+          stroke="#fbf1de"
+          stroke-width="1.3"
+          stroke-linecap="round"
+        />
+      </symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="header">
+      <div class="container header-inner">
+        <a href="#home" class="logo" aria-label="The Coffee Bean home">
+          <svg class="logo-mark" aria-hidden="true" focusable="false">
+            <use href="#logo" />
+          </svg>
+          <span class="logo-text"
+            ><em>The</em> Coffee Bean<small>Roasters &amp; Café</small></span
+          >
+        </a>
+        <nav id="nav" class="nav" aria-label="Primary">
+          <ul class="nav-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-actions">
+          <a href="#menu" class="btn btn-primary header-cta">Order online</a>
+          <button
+            class="cart-btn"
+            id="cartBtn"
+            aria-label="Open your order"
+            aria-haspopup="dialog"
+          >
+            <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+            <span class="cart-count" id="cartCount" hidden>0</span>
+          </button>
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-expanded="false"
+            aria-controls="nav"
+            aria-label="Open menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ============ HERO ============ -->
+      <section class="hero" id="home">
+        <div class="hero-bg" id="heroBg" aria-hidden="true"></div>
+        <video
+          class="hero-video"
+          id="heroVideo"
+          muted
+          loop
+          playsinline
+          preload="auto"
+          aria-hidden="true"
+          hidden
+        ></video>
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="hero-chip" id="heroChip">Freshly roasted every morning</p>
+            <h1>Crafting perfection<br /><em>in every cup.</em></h1>
+            <p class="hero-sub">
+              Small-batch beans, roasted in-house and poured by baristas who
+              care about every detail. Order online for delivery or pickup.
+            </p>
+            <div class="hero-actions">
+              <a href="#menu" class="btn btn-primary">Order online</a>
+              <a href="#contact" class="btn btn-outline">Visit us</a>
+            </div>
+            <ol class="hero-steps" aria-label="How ordering works">
+              <li>
+                <button type="button" class="step" data-step="menu">
+                  <i class="fa-solid fa-mug-saucer" aria-hidden="true"></i
+                  ><span><b>1</b>Pick your drinks and bites</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="step" data-step="cart">
+                  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i
+                  ><span><b>2</b>Send the order on WhatsApp</span>
+                </button>
+              </li>
+              <li>
+                <button type="button" class="step" data-step="delivery">
+                  <i class="fa-solid fa-motorcycle" aria-hidden="true"></i
+                  ><span><b>3</b>We deliver it fresh</span>
+                </button>
+              </li>
+            </ol>
+          </div>
+          <figure class="hero-poster" id="heroPoster" hidden>
+            <img
+              alt="The Coffee Bean: the real taste of coffee"
+              width="430"
+              height="646"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <!-- Auto-scrolling photo strip -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marquee"></div>
+      </div>
+
+      <!-- ============ ABOUT ============ -->
+      <section class="section section-cream" id="story">
+        <div class="container about-grid">
+          <div class="collage reveal">
+            <img
+              class="arch c1"
+              data-img="0"
+              data-w="700"
+              data-h="900"
+              alt="Freshly roasted coffee beans"
+            />
+            <img
+              class="arch c2"
+              data-img="1"
+              data-w="500"
+              data-h="640"
+              alt="Barista pouring espresso"
+            />
+            <img
+              class="round c3"
+              data-img="2"
+              data-w="420"
+              data-h="420"
+              alt="Latte art"
+            />
+          </div>
+          <div class="about-text reveal">
+            <h2>Our <em>philosophy</em></h2>
+            <p class="lead">
+              Humara ek usool hai: har bean ka source maloom ho, aur cup tak us
+              ki izzat ki jaye.
+            </p>
+            <ul class="values">
+              <li>
+                <i class="fa-solid fa-seedling" aria-hidden="true"></i>
+                <div>
+                  <h3>Ethical sourcing</h3>
+                  <p>
+                    Direct from farms we have visited, at prices above
+                    fair-trade minimums.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-fire-flame-curved" aria-hidden="true"></i>
+                <div>
+                  <h3>Organic small-batch roasting</h3>
+                  <p>
+                    Certified organic beans, roasted in small batches and rested
+                    before serving.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i
+                  class="fa-solid fa-hand-holding-heart"
+                  aria-hidden="true"
+                ></i>
+                <div>
+                  <h3>Expert baristas</h3>
+                  <p>
+                    Every barista completes 200 hours of training before serving
+                    guests.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MENU + ONLINE ORDER ============ -->
+      <section class="section section-dark" id="menu">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Order <em>online</em></h2>
+            <p>
+              Items chunein, "Add" dabayein, aur apna order WhatsApp par bhej
+              dein.
+            </p>
+          </header>
+          <div class="menu-tools reveal">
+            <div
+              class="tabs"
+              role="tablist"
+              aria-label="Menu categories"
+              id="menuTabs"
+            ></div>
+            <div class="search">
+              <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+              <label for="menuSearch" class="sr-only">Search the menu</label>
+              <input
+                id="menuSearch"
+                type="search"
+                placeholder="Search the menu"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+          <div class="menu-grid" id="menuGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <!-- ============ VIDEO FEATURE ============ -->
+      <section class="section section-mocha" id="brew">
+        <div class="container video-grid">
+          <div class="reveal">
+            <h2>Watch how we <em>brew</em></h2>
+            <p class="lead">
+              Beans se cup tak: grind, bloom, pour. Har step mein waqt aur
+              tawajjo lagti hai.
+            </p>
+            <p>
+              Hamare baristas har cup haath se banate hain, taake aap ko wohi
+              zaiqa mile jo roaster ne socha tha.
+            </p>
+            <a href="#menu" class="btn btn-primary">See what we pour</a>
+          </div>
+          <div class="player reveal">
+            <video
+              id="featureVideo"
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              aria-label="Coffee being brewed"
+            ></video>
+            <span class="player-cap">Behind the bar</span>
+            <div class="player-bar">
+              <button id="fvPlay" aria-label="Pause video">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <button id="fvSound" aria-label="Turn sound on">
+                <i class="fa-solid fa-volume-xmark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ GALLERY ============ -->
+      <section class="section section-cream" id="gallery">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Inside the <em>café</em></h2>
+            <p>Kisi tasveer par click karein, bari dikhegi.</p>
+          </header>
+          <div class="mosaic reveal" id="mosaic"></div>
+        </div>
+      </section>
+
+      <!-- ============ REVIEWS ============ -->
+      <section class="section section-dark" id="reviews">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>What guests <em>say</em></h2>
+            <p class="rating-summary" id="ratingSummary"></p>
+          </header>
+          <div
+            class="carousel reveal"
+            id="carousel"
+            aria-roledescription="carousel"
+            aria-label="Customer reviews"
+          >
+            <button class="carousel-btn prev" aria-label="Previous review">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="carousel-viewport">
+              <div class="carousel-track" id="carouselTrack"></div>
+            </div>
+            <button class="carousel-btn next" aria-label="Next review">
+              <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="dots" id="carouselDots"></div>
+
+          <form class="review-form reveal" id="reviewForm" novalidate>
+            <h3>Apna review likhein</h3>
+            <div class="field-row">
+              <div class="field">
+                <label for="rvName">Your name</label
+                ><input
+                  id="rvName"
+                  type="text"
+                  autocomplete="name"
+                  required
+                /><small class="error" aria-live="polite"></small>
+              </div>
+              <div class="field">
+                <span class="label" id="starLabel">Rating</span>
+                <div
+                  class="star-input"
+                  role="radiogroup"
+                  aria-labelledby="starLabel"
+                  id="starInput"
+                >
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="1 star"
+                    data-v="1"
+                  >
+                    ★
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="2 stars"
+                    data-v="2"
+                  >
+                    ★
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="3 stars"
+                    data-v="3"
+                  >
+                    ★
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="4 stars"
+                    data-v="4"
+                  >
+                    ★
+                  </button>
+                  <button
+                    type="button"
+                    role="radio"
+                    aria-checked="false"
+                    aria-label="5 stars"
+                    data-v="5"
+                  >
+                    ★
+                  </button>
+                </div>
+                <small class="error" id="starError" aria-live="polite"></small>
+              </div>
+            </div>
+            <div class="field">
+              <label for="rvText">Your review</label
+              ><textarea
+                id="rvText"
+                rows="3"
+                maxlength="300"
+                required
+              ></textarea
+              ><small class="error" aria-live="polite"></small>
+            </div>
+            <button class="btn btn-primary" type="submit">Post review</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT / VISIT ============ -->
+      <section class="section section-cream" id="contact">
+        <div class="container">
+          <header class="section-head reveal">
+            <h2>Visit <em>us</em></h2>
+            <p>
+              Aaiye, ek cup saath piyein. Ya order karein, hum pohancha denge.
+            </p>
+          </header>
+          <div class="info-grid reveal">
+            <div class="info-card">
+              <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              <h3>Address</h3>
+              <p>24 Roasters Lane, Old Town</p>
+            </div>
+            <div class="info-card">
+              <i class="fa-regular fa-clock" aria-hidden="true"></i>
+              <h3>Hours</h3>
+              <p>Every day, 8:00 AM – 11:00 PM</p>
+            </div>
+            <div class="info-card">
+              <i class="fa-solid fa-phone" aria-hidden="true"></i>
+              <h3>Call</h3>
+              <p><a href="tel:+923278826771">0327 8826771</a></p>
+            </div>
+            <div class="info-card">
+              <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              <h3>WhatsApp</h3>
+              <p>
+                <a
+                  id="contactWa"
+                  href="https://wa.me/923278826771"
+                  target="_blank"
+                  rel="noopener"
+                  >Chat with us</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============ FOOTER (short) ============ -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a href="#home" class="logo"
+          ><svg class="logo-mark" aria-hidden="true" focusable="false">
+            <use href="#logo" /></svg
+          ><span class="logo-text"
+            ><em>The</em> Coffee Bean<small>Roasters &amp; Café</small></span
+          ></a
+        >
+        <p class="footer-info">
+          <i class="fa-regular fa-clock" aria-hidden="true"></i> Daily 8:00 –
+          23:00 &nbsp;|&nbsp;
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i> 24
+          Roasters Lane, Old Town
+        </p>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+          <a href="#" aria-label="Facebook"
+            ><i class="fa-brands fa-facebook-f"></i
+          ></a>
+          <a href="#" aria-label="TikTok"
+            ><i class="fa-brands fa-tiktok"></i
+          ></a>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        &copy; <span id="year">2026</span> The Coffee Bean. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- ============ WHATSAPP: LEFT side ============ -->
+    <a
+      class="whatsapp"
+      id="waFloat"
+      href="https://wa.me/923278826771"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat with us on WhatsApp"
+      ><i class="fa-brands fa-whatsapp"></i
+    ></a>
+
+    <!-- ============ ORDER DRAWER ============ -->
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside
+      class="drawer"
+      id="drawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="drawerTitle"
+      tabindex="-1"
+    >
+      <div class="drawer-head">
+        <h2 id="drawerTitle">Your order</h2>
+        <button class="icon-btn" id="drawerClose" aria-label="Close your order">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="drawer-body">
+        <div class="cart-empty" id="cartEmpty">
+          <i class="fa-solid fa-mug-hot" aria-hidden="true"></i>
+          <p>Aap ka order abhi khali hai.</p>
+          <button class="btn btn-primary" id="browseMenu" type="button">
+            Browse the menu
+          </button>
+        </div>
+        <ul class="cart-list" id="cartList"></ul>
+
+        <form id="orderForm" novalidate hidden>
+          <div class="totals">
+            <div><span>Subtotal</span><span id="subTotal">Rs 0</span></div>
+            <div><span>Delivery</span><span id="delFee">Rs 0</span></div>
+            <div class="grand">
+              <span>Total</span><span id="grandTotal">Rs 0</span>
+            </div>
+            <p class="free-note" id="freeNote"></p>
+          </div>
+
+          <fieldset class="otype">
+            <legend>How would you like it?</legend>
+            <label class="chip"
+              ><input type="radio" name="otype" value="delivery" checked />
+              <span>Delivery</span></label
+            >
+            <label class="chip"
+              ><input type="radio" name="otype" value="pickup" />
+              <span>Pickup</span></label
+            >
+          </fieldset>
+
+          <div class="field">
+            <label for="ofName">Your name</label
+            ><input id="ofName" type="text" autocomplete="name" /><small
+              class="error"
+              aria-live="polite"
+            ></small>
+          </div>
+          <div class="field">
+            <label for="ofPhone">Phone number</label
+            ><input
+              id="ofPhone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              placeholder="03xx xxxxxxx"
+            /><small class="error" aria-live="polite"></small>
+          </div>
+          <div class="field" id="addressField">
+            <label for="ofAddress">Delivery address</label
+            ><textarea
+              id="ofAddress"
+              rows="2"
+              autocomplete="street-address"
+            ></textarea
+            ><small class="error" aria-live="polite"></small>
+          </div>
+          <div class="field">
+            <label for="ofNotes">Notes (optional)</label
+            ><input
+              id="ofNotes"
+              type="text"
+              maxlength="160"
+              placeholder="Less sugar, extra hot, etc."
+            />
+          </div>
+          <p class="pay-note">
+            <i class="fa-solid fa-money-bill-wave" aria-hidden="true"></i>
+            Payment: cash on delivery or at pickup.
+          </p>
+          <button type="submit" class="btn btn-wa btn-block">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Send order
+            on WhatsApp
+          </button>
+        </form>
+      </div>
+    </aside>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lb-close" aria-label="Close picture">
+        <i class="fa-solid fa-xmark"></i></button
+      ><img alt="" />
+    </div>
+
+    <!-- Message modal -->
+    <div
+      class="modal"
+      id="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+      hidden
+    >
+      <div class="modal-card">
+        <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+        <h3 id="modalTitle">Thank you</h3>
+        <p id="modalText"></p>
+        <button class="btn btn-primary" id="modalClose">Close</button>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
